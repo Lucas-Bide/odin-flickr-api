@@ -1,0 +1,15 @@
+<h1>View a Flickr User's Photos</h1>
+<div>
+  <%= form_with url: '/', method: 'get', local: true do |f| %>
+    <%= f.label :id, 'Enter a user id from Flickr' %>
+    <%= f.text_field :id, value: params[:id].to_s %> 
+    <%= f.submit 'Search' %>
+  <% end %>
+</div>
+<% if @photo_urls %>
+  <div>
+    <% @photo_urls.each do |u| %>
+      <%= image_tag u %>
+    <% end %>
+  </div>
+<% end %>
